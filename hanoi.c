@@ -5,9 +5,9 @@ int count=0;
 void hanoi(char a, char b, char c, int n);
 
 void main(){
-	int n;
-	printf("Disk: ");
-	scanf("%d",&n);
+	int n=100;
+//	printf("Disk: ");
+//	scanf("%d",&n);
 	hanoi('A','B','C',n);
 }
 
