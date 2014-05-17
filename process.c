@@ -14,7 +14,7 @@ int main(){
 	int state;
 	int child_count = 0;
 
-	for(child_count =0; child_count < 5; ++child_count){
+	for(child_count =0; child_count < 10; ++child_count){
 //	while(child_count==3){
 		fork_ret = fork();
 //		fork_ret = fork();
@@ -23,22 +23,25 @@ int main(){
 
 		if(fork_ret < 0){
 			printf("fork() error\n");
-			exit(1);
+			exit(-1);
+//			child_count--;
 		}
 		else if(0==fork_ret){
 //		global_val++;
 //		local_val++;
-			child_count++;
+//			child_count++;
 			hanoi('A', 'B', 'C', 2);
 			printf("Child Num.: %d CHILD - PID : %d parent's PID : %d \n",child_count,  getpid(), getpid());
 		}
 		else{
 //		global_val = global_val + 5;
 //		local_val = local_val + 5;
+//			--child_count;
 			printf("PARENT - PID : %d child's PID : %d \n", getpid(), fork_ret);
 
 			child = wait(&state);
 			printf("\t Child PID = %d \n", child);
+			exit(0);
 //		printf("\t return value = %d \n", WEXITSTATUS(state));
 
 //			sleep(10);
