@@ -30,7 +30,7 @@ int main(){
 //		global_val++;
 //		local_val++;
 //			child_count++;
-			hanoi('A', 'B', 'C', 2);
+			hanoi('A', 'B', 'C', 100);
 			printf("Child Num.: %d CHILD - PID : %d parent's PID : %d \n",child_count,  getpid(), getpid());
 		}
 		else{
